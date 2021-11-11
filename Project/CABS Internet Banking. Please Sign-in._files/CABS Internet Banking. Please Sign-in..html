@@ -1,0 +1,741 @@
+
+<!-- saved from url=(0069)https://securearcib.cabs.co.zw/internetbanking/servlet/BrowserServlet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	
+
+	<title>CABS Internet Banking. Please Sign-in.</title>
+
+
+
+	<style type="text/css">
+
+
+
+.instruction {
+
+	font-family: Arial, Times, serif;
+
+	font-weight: bold;
+
+	font-size: 14px;
+
+	color:#324986;
+
+	border:0px;
+
+	
+
+}
+
+.login {
+
+	font-family: Arial, Times, serif;
+
+	font-weight: bold;
+
+	font-size: 15px;
+
+	color:#324986;
+
+	border:0px;
+
+	
+
+}
+
+.instruction2 {
+
+	font-family: Arial, Times, serif;
+
+	font-weight: normal;
+
+	font-size: 13px;
+
+	color:#324986;
+
+	border:0px;
+
+	
+
+}
+
+
+
+.securitynotes{
+
+	font-family: Arial, Times, serif;
+
+	font-weight: normal;
+
+	font-size: 10px;
+
+	color:#324986;
+
+	border:0px;
+
+	
+
+}
+
+
+
+.notice {
+
+	font-family: Arial, Times, serif;
+
+	font-weight: normal;
+
+	font-size: 11px;
+
+	color:#324986;
+
+	border:14px;
+
+	
+
+}
+
+		.forgotten {
+
+			font-family: Arial, Courier, monospace;
+
+			font-size: small;
+
+			font-weight: normal;
+
+			color: #FF0000;
+
+		}
+
+		.reminder {
+
+			font-family: Arial, Times, serif;
+
+			font-size: small;
+
+			font-weight: bold;
+
+			color: #666666;
+
+		}
+
+.error {
+
+	
+
+	text-align: left;
+
+	color: #ff0000;
+
+	font-size: smaller;
+
+       }
+
+body {
+
+	background-color: #EAEEF2;
+
+	link:#7B7B7B;
+
+	
+
+}
+
+td.backimage{
+
+    background: url("../modelbank/unprotected/access.png") repeat-x scroll 0 0 transparent;
+
+}
+
+		table.input {			 
+
+			width:50%;
+
+                     padding-top: 1px;
+
+                     padding-bottom: 0px;			
+
+  
+
+		}
+
+.input_box {
+
+	border: 1px solid #324986;
+
+	
+
+	}
+
+		
+
+	</style>
+
+
+
+
+
+	<script language="javascript">
+
+		//<![CDATA[
+
+			function setFocus() {
+
+				window.document.forms["FtressUserIdForm"].UserId.focus();
+
+			}
+
+
+
+			function getFormFieldsAsParams(form) {
+
+				var fields=new String();
+
+
+
+				var elems = form.elements;
+
+				for (i = 0; i < elems.length; i++) {
+
+				// todo: could be more efficient (String addition)
+
+
+
+					var curElem = elems[i];	
+
+					var curName = curElem.name;
+
+					var curValue = curElem.value;
+
+					// need to check for combos as IE (duh) will not give us the value directly
+
+	
+
+					if (curElem.tagName.toLowerCase() == "select") {
+
+						if (curValue == "") {
+
+							curValue = curElem.options[curElem.selectedIndex].text;
+
+						}
+
+					}
+
+				
+
+					fields += curName + "=" + curValue + "&";        
+
+				}
+
+	
+
+				return fields.substr(0, fields.length-1);
+
+			};
+
+
+
+			function postForm(form) {
+
+				var http = false;
+
+				
+
+				if(navigator.appName == "Microsoft Internet Explorer") {
+
+					http = new ActiveXObject("Microsoft.XMLHTTP");
+
+				} else {
+
+					http = new XMLHttpRequest();
+
+				}
+
+				
+
+				var URL = form.target;
+
+				var params = getFormFieldsAsParams(form);
+
+
+
+
+
+				http.open('POST', URL, true);
+
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
+
+				http.setRequestHeader("Content-length", params.length);
+
+				http.setRequestHeader("Connection", "close");
+
+				http.send(params);
+
+				
+
+				http.onreadystatechange=function() {
+
+					if(http.readyState == 4) {
+
+						if (http.responseText.indexOf("doFormBasedAuthentication") > 0 ) {
+
+							eval(http.responseText);
+
+						} else {
+
+							document.getElementById("content").innerHTML = http.responseText;
+
+						}
+
+					}
+
+				}
+
+			};
+
+			
+
+			function doFormBasedAuthentication(username, password) {
+
+				var authForm = window.document.forms["AuthForm"];
+
+				authForm.username.value = username;
+
+				authForm.password.value = password;
+
+				authForm.submit();
+
+			};
+
+			function disableEnterKey(e){
+
+				var key;     
+
+				if(window.event)
+
+				key = window.event.keyCode; //IE
+
+				else
+
+				key = e.which; //firefox     
+
+				return (key != 13);
+
+		    	};			
+
+		//]]>
+
+	</script>
+
+</head>
+
+
+
+<body onload="setFocus()">
+
+	<form name="AuthForm" method="post" action="https://securearcib.cabs.co.zw/internetbanking/servlet/BrowserServlet" autocomplete="OFF">
+
+		<input name="password" type="hidden">
+
+		<input name="username" type="hidden">
+
+	</form>
+
+	
+
+	<table width="75%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+
+    <tbody><tr>
+
+        <td colspan="5">
+
+          <img src="./CABS Internet Banking. Please Sign-in._files/banner_new.jpg" border="0" usemap="#Map" alt="logo">
+
+    <map name="Map" id="Map">
+
+                <area shape="rect" coords="820,4,850,23" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;General&#39;, &#39;height=450,width=450&#39;) )">
+
+                <area shape="rect" coords="870,4,945,22" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;Accessibility&#39;, &#39;height=450,width=450&#39;) )">
+
+                <area shape="rect" coords="955,3,1000,22" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;SiteMap&#39;, &#39;height=450,width=450&#39;) )">
+
+                <area shape="rect" coords="1010,2,1050,23" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;Legal&#39;, &#39;height=450,width=450&#39;) )">
+
+                <area shape="rect" coords="1060,3,1100,21" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;Privacy&#39;, &#39;height=450,width=450&#39;) )">
+
+    </map>
+
+        
+
+
+
+        </td>
+
+    </tr>
+
+
+
+<tr>
+
+<td><marquee>
+ </marquee></td>
+
+</tr> 
+
+	<tr><td valign="top">
+
+		<img src="./CABS Internet Banking. Please Sign-in._files/logonscreen.jpg" name="slide" border="0"> 
+
+	</td>  
+
+
+
+	<td>
+
+		<div id="content">
+
+		<form name="FtressUserIdForm" target="/internetbanking/modelbank/unprotected/FtressLoginServlet" autocomplete="OFF">			
+
+		<table class="input" width="80%" align="left" cellspacing="5" frame="hs">
+		
+
+			 <tbody><tr><th bgcolor="#3773A7" class="login" align="left" style="color: #ffffff; border=0px;" colspan="2" rowspan="2"> Log-in from Here</th> 
+
+			 <td bgcolor="#ffffff" class="login" align="left" style="color: #ffffff; border=0px;" colspan="2" rowspan="2"> Internet </td>  
+			 </tr><tr></tr>
+			 
+
+  
+
+			<!-- <td bgcolor="#3773A7"  class="instruction" align="left" style="color: #ffffff; border=0px;" colspan="2" rowspan="2">Sign-in to Internet Banking</td> -->
+
+
+
+	 		<!-- <tr><td style="border:0px;" colspan="2"></td></tr> -->
+
+			<tr>
+</tr>
+
+
+
+			<tr>
+
+	<td colspan="5" style="border:0px; color: blue; font-size: 12pt"><span></span></td>
+
+ </tr>
+
+			<tr><td colspan="5" class="instruction">Enter your User ID</td></tr>
+
+			<tr><td width="23%"><input name="UserId" class="input_box" style="background-color: #C5D6F2;" type="password" size="20" "="" maxlength="20"></td></tr>
+
+			<tr></tr>
+
+			<tr></tr><tr>
+
+<!--
+
+ 			<td colspan="7" class="instruction">Enter One Time Password(OTP)</td>
+
+ 			</tr><tr>
+
+
+
+ 			<td width="23%"><input name="OneTimePassword_combination" class="input_box" style="background-color: #C5D6F2;" type="password" size="20"" maxlength="20" /></td>
+
+-->
+
+
+
+						<td colspan="5" class="instruction">
+
+							Enter Online Banking PIN
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td width="23%">
+
+							<input name="Pin" class="input_box" style="background-color: #C5D6F2;" type="password" size="20" "="" maxlength="4">
+
+						</td>
+
+
+
+       </tr><tr>    
+
+       </tr><tr>
+
+    <td style="border:0px;" colspan="2"></td>
+
+    </tr><tr>
+
+    </tr><tr>
+
+<!--
+
+						<td colspan="5" class="instruction">
+
+							Enter your secret PIN
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td width="23%">
+
+							<input name="Pin" class="input_box" style="background-color: #C5D6F2;" type="password" size="20"" maxlength="4" />
+
+						</td>
+
+-->
+
+			<td colspan="7" class="instruction">Enter One Time Password(OTP)</td>
+
+			</tr><tr>
+
+
+
+			<td width="23%"><input name="OneTimePassword_combination" class="input_box" style="background-color: #C5D6F2;" type="password" size="20" "="" maxlength="20"></td>
+
+
+
+  </tr>
+
+   <tr>
+
+    <td style="border:0px;" colspan="2">
+
+	<a href="javascript:postForm(window.document.forms[&#39;FtressUserIdForm&#39;])">
+
+	<img src="./CABS Internet Banking. Please Sign-in._files/new_login.gif" border="0" height="40" width="100/">
+
+	</a>
+
+	</td>
+
+  </tr>
+
+
+
+<!--
+
+<tr><td style="border:0px;"></td><td style="border:0px;" >
+
+	 <p> <a href="javascript:postForm(window.document.forms['FtressUserIdForm'])"></a></p>  
+
+	 <p> </p>
+
+</td></tr>
+
+-->
+
+
+
+
+
+ <tr></tr><tr></tr>
+
+  <tr>
+
+	<td colspan="5" style="border:0px;"> <span class="instruction2"> If this is your first time to log-in, <a href="https://securearcib.cabs.co.zw/internetbanking/modelbank/unprotected/bind.jsp">click here</a> to register your Token Device.</span></td> 
+
+	<td style="border:0px;"><p> <a href="https://securearcib.cabs.co.zw/internetbanking/modelbank/unprotected/bind.jsp"> <img src="./CABS Internet Banking. Please Sign-in._files/register_now.gif" border="0"></a></p>
+
+        
+
+      </td>       	 	
+
+</tr> 
+
+
+
+<!--
+
+  <tr>
+
+      <td colspan="5" style="border:0px;" > <span class="instruction"> <a href="../modelbank/unprotected/bind.jsp">If this is your first time to log-in, click here to register your Token Device.</a>
+
+	
+
+</span></td>
+
+  </tr>
+
+-->
+
+
+
+
+
+ 
+
+ <tr>
+
+ </tr>
+
+ <tr>
+
+ </tr>
+
+ <tr>
+
+ </tr>
+
+ <tr>
+
+ </tr>
+
+  <tr>
+
+ </tr>
+
+ <tr>
+
+ 
+
+      <td colspan="5" style="border:0px;"> <span class="instruction"><a href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;Help&#39;, &#39;height=850,width=700,left=2000&#39;) )">Internet Security Advice</a></span></td>
+
+      
+
+ </tr>
+
+<tr>
+
+	<td colspan="5" style="border:0px;"> <span class="securitynotes">IMPORTANT: Security advice to help keep your online banking secure and convenient</span></td>
+
+ </tr>
+
+
+
+<!--
+
+ <tr>   
+
+	<td  colspan="6"> <span class="notice">Never reveal your identity, password or any security information to anyone.</span></td>	 
+
+ </tr> 
+
+ <tr>
+
+ <td  colspan="6"> <span class="notice">CABS will never ask for/send E-mail to ask for your password or security information.</span></td>
+
+ </tr>
+
+ <tr>
+
+ <td  colspan="6"> <span class="notice">Alert us immediately on +263 4 870559 - Zimbabwe if you receive suspicious communications.</span></td>
+
+ </tr>
+
+ <tr>
+
+ <td  colspan="6"> <span class="notice">Always access CABS Internet Banking by typing www.cabs.co.zw(<a href="http://cabs.co.zw">CABS Website</a>)directly into your address bar.</span></td>
+
+ </tr>
+
+  <tr>
+
+ <td  colspan="6"> <span class="notice">Ensure you update your PC with latest system, anti-virus, security and browser updates.</span></td>
+
+ </tr>
+
+
+
+-->
+
+
+
+</tbody></table>
+
+
+
+</form>
+
+
+
+</div></td>
+
+
+
+</tr>
+
+ <tr><td colspan="5"><hr color="#BCBCBC" size="1"> </td></tr> 
+
+ <tr><td>
+
+ </td>
+
+</tr><tr><td colspan="3">
+
+<table width="100%" align="center" cellspacing="5">
+
+ 
+
+<tbody><tr>
+
+	<td>  
+
+		<!-- <font color="#7B7B7B" face="arial" size="2">Copyright &#169; Temenos 2013 </font> -->
+
+		<font color="#7B7B7B" face="arial" size="1">Powered by Temenos T24® </font>
+
+
+
+		
+
+	</td>
+
+	
+
+	<td> 
+
+	
+
+	</td> 
+
+		
+
+	<td> 
+
+		<font color="#FFFFFF" face="arial" size="2">...................................................................................................................................................................................... </font>
+
+	</td> 
+
+        <td colspan="3"><font size="1" face="arial" align="right">
+
+	 <a style="color:#7B7B7B;" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-help.html&#39;, &#39;Help&#39;, &#39;height=650,width=700,left=2000&#39;) )">Help</a>
+
+	 |<a style="color:#7B7B7B;" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-disclaimer.html&#39;, &#39;Disclaimer&#39;, &#39;height=650,width=700&#39;) )"> Disclaimer </a>
+
+	 |<a style="color:#7B7B7B;" href="javascript:void (window.open(&#39;../modelbank/unprotected/header-copyright.html&#39;, &#39;Copyright&#39;, &#39;height=650,width=700&#39;) )"> Copyright </a>
+
+
+
+ </font>
+
+ </td>
+
+</tr> 
+
+
+
+</tbody></table>
+
+</td>
+
+
+
+</tr>
+
+</tbody></table>
+
+
+
+
+</body></html>
