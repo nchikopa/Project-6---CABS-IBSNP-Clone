@@ -38,3 +38,9 @@ analogus to the HTML document structure, the table can be persived as:
                 - content in title || table data is what is dispalyed by the broswer and it is what is consumed by the user. 
 
 <th>....Heading content....</th>
+    - represents the heading of either a column or row - scope attribute can be used to indicate whether heading is for column or row 
+                    <th scope="col" || scope="raw">.....</th>
+    - it can span in column or in row
+    - browser display it bold and middle of cell
+    - has the same propertises as <td> except its a heading
+    - helps screen readers, improves ability of SE to index page, enables appearance of table when appliying CSS
