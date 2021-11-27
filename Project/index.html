@@ -3,57 +3,93 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="iso-8859-1">
     <title>CABS Internet Banking. Please Sign-in.</title>
+   <!--
+    <link rel="stylesheet" href="styles.css">
+    --> 
 </head>
 <body>
-    <!--My main aim is to recreate the structure of the page my way. There will not be any javascipt or CSS included (eccept inline CSS) for now (baby steps)-->
+    <!--My main aim is to recreate the structure and style of the page my way. There will not be any javascipt-->
     <!--I just inheritade table properties as they are implemeted on the original page to help me learn their effect-->
     <!--Source document is not authored in HTML5 so l changed align, border, bgcolor into elements supported in HTML5-->
     <table width="75%" style="background-color:#FFFFFF "cellpadding="0" cellspacing="0"width="994"><!--set border to 0 in HTML5, align:center-->
         <thead>
             <tr>
-                <th scope="col"><img src="./CABS Internet Banking. Please Sign-in._files/banner_new.jpg" alt="CABS banner_new"></th>
+                <th scope="col" colspan="4"><img src="./CABS Internet Banking. Please Sign-in._files/banner_new.jpg" alt="CABS banner_new"></th>
             </tr>
          </thead>
          <tbody>
             <tr>
-                <!--Todo: figure out how to reduce space between image; one idea is to consider td as para and align everything??? might work not if good practise-->
-                <!--Debugg: put table borders to get of a visual of cell alignment hopefully will be able to fix image overlap(just an idea)-->
-                <td rowspan="5"><img src="./CABS Internet Banking. Please Sign-in._files/logonscreen.jpg" alt="logon screen"></td>
+                <td rowspan="5" width="47%"><img src="./CABS Internet Banking. Please Sign-in._files/logonscreen.jpg" alt="logon screen"></td> 
+                <td></td>
+            </tr>
+            <tr>
+                <!--Todo: close gap between line 33 & 34-->
                 <td>Log-in from Here</td>
                 <td>Internet</td>
             </tr>
+                <form action="user-log-in-details.html" method="GET">
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="username">Enter your User ID<br></label>
+                                <input type="password" username="username" id="username" size="20" maxlength="20">
+                            </td>
+                        </tr>
+                    </div>
+                    <div>
+                        <tr>
+                            <td>
+                                <label for="pin number">Enter Online Banking PIN <br></label>
+                                <input type="password" name="pin number" size="20" maxlength="4">
+
+                            </td>
+                        </tr>  
+                    </div>
+                    <div>
+                        <tr>
+                            <td>
+                               <label for="password"> Enter One Time Password(OTP)</label>
+                               <input type="password" name="One Time Password" size="20" maxlength="20">
+                            </td>
+                        </tr>
+                    </div>
+                
+                     <div>
+                        <tr>
+                        
+                            <td></td>
+                            <td>
+                                <!--todo : I need to redirect to welcome-page.html after log-in for now after log-in its redirecting to user-log-in details.html only-->
+                                <a href="welcome-page.html">
+                                    <input type="image" src="./CABS Internet Banking. Please Sign-in._files/new_login.gif" /></a>
+                            </td>   
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </div>
+                </form>
             <tr>
-                <!--Todo: change table data on lines 46, 52, 58 to authentication forms-->
-                <td>Enter your User ID</td>
-            </tr>
-            <tr>
-                <td>Enter Online Banking PIN</td>
-            </tr>    
-            <tr>
-                <td>Enter One Time Password(OTP)</td>
-            </tr>
-            <tr>
-                <!--Todo: change login to submitt button-->
-                <td>Login</td>
-            </tr>
-            <tr>
+                <!--Todo: provide URL in line 72 and 90-->
                 <td></td>
-                <td>If this is your first time to log-in,<a href="#">clik here</a><br>to register your Token Device. </td>
-                <!--Todo: change table data in line 79 to a button-->
-                <td><img src="./CABS Internet Banking. Please Sign-in._files/register_now.gif" alt="Register Now"></td>
+                <td ><small>If this is your first time to log-in,<a href="#">clik here</a><br>to register your Token Device. </small></td>
+                <td>
+                    <a href="registration_form.html"><img src="./CABS Internet Banking. Please Sign-in._files/register_now.gif" alt="Register Now"></a></td>
             </tr>
             <tr>
-               
-            </tr>
-            <tr>
-                <td></td>
-                <td><strong><u><a href="" >Internet Security Advice</a></u></strong><br>IMPORTANT: Security advice to help keep your online<br>banking secure and convenient</td>
+                <td ></td>
+                <td style="padding-top: 2pc;"><strong><u><a href="security_advise.html" >Internet Security Advice</a></u></strong><br><small>IMPORTANT: Security advice to help keep your online<br>banking secure and convenient</small></td>
             </tr>
         </tbody>
         <tfooter>
             <tr>
-                <td><small>Powered by Temenos T24&#174</small></td>
-                <td><small><a href="#">Help|</a><a href="#">Disclaimer|</a><a href="#">Copyright</small></a></td>
+                <td><hr></td>
+                <td><hr></td>
+                <td><hr></td>
+                <td><hr></td>
+            </tr>
+            <tr>
+                <td colspan="3"><small>Powered by Temenos T24&#174 ....................................................................................................................................................................................................</small></td>
+                <td style="color:black;"><small><a href="#">Help|</a><a href="#">Disclaimer|</a><a href="#">Copyright</small></a></td>
             </tr>
         </tfooter>
     </table> 

@@ -1,0 +1,22 @@
+<!--This will be a local server were users login details will be submitted to and stored-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Log-in Details</title>
+</head>
+<body>
+   <!--Just copied this from Web Dev Simplified "Learn HTML Forms in 25 Minutes" youtube tutorial-->
+   <div id="user-log-in-details"></div>
+   <a href="/">Back to Form</a>
+   <script>
+       const resultList = document.getElementById('user-log-in-details')
+       new URLSearchParams(window.location.search).foreach((value, name) => {
+           resultsList.append('${name}: ${value}')
+           resultList.append(document.createElement('br'))
+       })
+   </script>
+</body>
+</html>
